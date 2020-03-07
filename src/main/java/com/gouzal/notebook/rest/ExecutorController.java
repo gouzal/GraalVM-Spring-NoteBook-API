@@ -25,7 +25,6 @@ public class ExecutorController {
 
     @Autowired
     HttpSession httpSession;
-    private Map usersPolyglotSessions;
 
     @GetMapping(value = "/execute", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity execute(@RequestBody Command command) throws InvalidScriptException, UnsupportedLanguageException {
