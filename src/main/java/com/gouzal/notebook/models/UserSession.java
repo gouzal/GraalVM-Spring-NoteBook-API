@@ -17,6 +17,7 @@ public class UserSession {
 
     public UserSession(String sessionId) {
         this.sessionId = sessionId;
+        //todo: context could be injected for better testing capabilities
         this.context = Context.create();
     }
 

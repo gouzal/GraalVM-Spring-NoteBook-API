@@ -56,7 +56,13 @@ public class Command implements IContextOperations {
         }
     }
 
-
+    /**
+     * This method run the command in the given polyglot context
+     * @param context the GraalVM polyglot context
+     * @return the output of code execution
+     * @throws InvalidScriptException
+     * @throws UnsupportedLanguageException
+     */
     @Override
     public Map execute(Context context) throws InvalidScriptException, UnsupportedLanguageException {
         Value result = context.eval(this.getInterpreter(), this.getScript());
