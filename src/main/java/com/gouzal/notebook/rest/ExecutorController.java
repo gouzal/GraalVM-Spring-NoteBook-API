@@ -25,6 +25,7 @@ public class ExecutorController {
 
     @Autowired
     HttpSession httpSession;
+    private Map usersPolyglotSessions;
 
     @GetMapping(value = "/execute", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity execute(@RequestBody Command command) throws InvalidScriptException, UnsupportedLanguageException {
@@ -36,6 +37,26 @@ public class ExecutorController {
 
         return new ResponseEntity<Map>(resultResponse, HttpStatus.OK);
     }
+
+    /**
+     * Return the User Object and its Polyglot context from HttpSession
+     * @param sessionId the UserId in the HttpSession
+     * @return UserSession the Object that represent the User Polyglot context in the HttpSession
+     */
+    public UserSession getUserSession(String sessionId) {
+        UserSession userSession;
+        Map usersPolyglotSessions = (Map) this.httpSession.getAttribute("UsersPolyglotSessions");
+        if (usersPolyglotSessions.containsKey(sessionId)) {
+
+            userSession = (UserSession) usersPolyglotSessions.get(sessionId);
+        } else {
+            userSession = new UserSession(sessionId);
+            usersPolyglotSessions.put(sessionId, userSession);
+        }
+        return userSession;
+
+    }
+
 
     /**
      * Initialize the Session with a Map of Users Context
