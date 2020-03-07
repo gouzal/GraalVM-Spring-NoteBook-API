@@ -3,6 +3,7 @@ package com.gouzal.notebook.rest;
 import com.gouzal.notebook.exceptions.InvalidScriptException;
 import com.gouzal.notebook.exceptions.UnsupportedLanguageException;
 import com.gouzal.notebook.models.Command;
+import com.gouzal.notebook.models.Util;
 import org.graalvm.polyglot.Context;
 import org.graalvm.polyglot.Value;
 import org.springframework.http.HttpStatus;
@@ -24,9 +25,11 @@ public class ExecutorController {
         Context context = Context.create();
         Value result = context.eval(command.getInterpreter(), command.getScript());
         Map resultResponse = new HashMap<String, String>();
-        resultResponse.put("result", result.toString());
+        resultResponse.put("result", Util.filter(result.toString()));
         context.close();
+
         return new ResponseEntity<Map>(resultResponse, HttpStatus.OK);
     }
+
 
 }
