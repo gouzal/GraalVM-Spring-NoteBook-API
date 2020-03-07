@@ -14,7 +14,7 @@ import org.apache.commons.lang3.EnumUtils;
 @Setter
 public class Command {
     private String sessionId;
-    String code;
+    private String code;
 
     /**
      * This method split the user script and check if it is valid and if the langague is supported,
