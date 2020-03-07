@@ -13,7 +13,7 @@ import org.apache.commons.lang3.EnumUtils;
 @Getter
 @Setter
 public class Command {
-
+    private String sessionId;
     String code;
 
     /**
