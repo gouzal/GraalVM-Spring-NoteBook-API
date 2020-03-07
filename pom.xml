@@ -59,6 +59,12 @@
             <version>5.6.0</version>
             <scope>test</scope>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/org.graalvm/polyglot-tck -->
+        <dependency>
+            <groupId>org.graalvm</groupId>
+            <artifactId>polyglot-tck</artifactId>
+            <version>0.31</version>
+        </dependency>
     </dependencies>
 
     <build>
