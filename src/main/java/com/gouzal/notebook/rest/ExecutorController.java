@@ -15,7 +15,7 @@ public class ExecutorController {
     @GetMapping(value = "/execute", produces = MediaType.APPLICATION_JSON_VALUE)
     public String execute(@RequestBody Command command) {
         Context context = Context.create();
-        Value result = context.eval("js", "42");
+        Value result = context.eval(command.getInterpreter(), command.getScript());
         context.close();
 
         return "result:" + result.asInt();
