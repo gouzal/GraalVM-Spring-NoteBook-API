@@ -6,6 +6,10 @@ import lombok.Getter;
 import lombok.Setter;
 import org.apache.commons.lang3.EnumUtils;
 
+/**
+ * this class describe the user input
+ * and the methods to parse it
+ */
 @Getter
 @Setter
 public class Command {
