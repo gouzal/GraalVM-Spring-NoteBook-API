@@ -52,6 +52,19 @@
             <artifactId>spring-restdocs-mockmvc</artifactId>
             <scope>test</scope>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api -->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>5.6.0</version>
+            <scope>test</scope>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.graalvm/polyglot-tck -->
+        <dependency>
+            <groupId>org.graalvm</groupId>
+            <artifactId>polyglot-tck</artifactId>
+            <version>0.31</version>
+        </dependency>
     </dependencies>
 
     <build>
