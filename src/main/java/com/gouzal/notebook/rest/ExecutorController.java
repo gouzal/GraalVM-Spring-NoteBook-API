@@ -6,6 +6,7 @@ import com.gouzal.notebook.models.Command;
 import com.gouzal.notebook.models.Util;
 import org.graalvm.polyglot.Context;
 import org.graalvm.polyglot.Value;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -13,12 +14,16 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpSession;
 import java.util.HashMap;
 import java.util.Map;
 
 
 @RestController
 public class ExecutorController {
+
+    @Autowired
+    HttpSession httpSession;
 
     @GetMapping(value = "/execute", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity execute(@RequestBody Command command) throws InvalidScriptException, UnsupportedLanguageException {
