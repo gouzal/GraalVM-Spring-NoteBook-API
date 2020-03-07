@@ -1,10 +1,17 @@
 package com.gouzal.notebook.models;
 
+import com.gouzal.notebook.common.Util;
 import com.gouzal.notebook.exceptions.InvalidScriptException;
 import com.gouzal.notebook.exceptions.UnsupportedLanguageException;
 import lombok.Getter;
 import lombok.Setter;
 import org.apache.commons.lang3.EnumUtils;
+import org.graalvm.polyglot.Context;
+import org.graalvm.polyglot.Value;
+
+import java.util.HashMap;
+import java.util.Map;
+
 
 /**
  * this class describe the user input
@@ -12,7 +19,7 @@ import org.apache.commons.lang3.EnumUtils;
  */
 @Getter
 @Setter
-public class Command {
+public class Command implements IContextOperations {
     private String sessionId;
     private String code;
 
@@ -25,7 +32,7 @@ public class Command {
      * @see InvalidScriptException
      * @See UnsupportedLanguageException
      */
-    public String getInterpreter() throws UnsupportedLanguageException, InvalidScriptException {
+    private String getInterpreter() throws UnsupportedLanguageException, InvalidScriptException {
         this.getScript();
         String interpreterWithPrefix =code.split(" ")[0];
         String interpreter = interpreterWithPrefix.substring(1, interpreterWithPrefix.length());
@@ -41,7 +48,7 @@ public class Command {
      * @return the second part of the code that contain the script to be executed
      * @throws InvalidScriptException if the the script is invalid
      */
-    public String getScript() throws InvalidScriptException {
+    private String getScript() throws InvalidScriptException {
         if(this.code.contains("%")){
             return this.code.split(" ",2)[1];
         }else{
@@ -50,4 +57,11 @@ public class Command {
     }
 
 
+    @Override
+    public Map execute(Context context) throws InvalidScriptException, UnsupportedLanguageException {
+        Value result = context.eval(this.getInterpreter(), this.getScript());
+        Map resultResponse = new HashMap<String, String>();
+        resultResponse.put("result", Util.filter(result.toString()));
+        return resultResponse;
+    }
 }
