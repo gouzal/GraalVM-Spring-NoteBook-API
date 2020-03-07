@@ -13,8 +13,8 @@ import org.apache.commons.lang3.EnumUtils;
 @Getter
 @Setter
 public class Command {
-
-    String code;
+    private String sessionId;
+    private String code;
 
     /**
      * This method split the user script and check if it is valid and if the langague is supported,
