@@ -1,4 +1,4 @@
-package com.gouzal.notebook.models;
+package com.gouzal.notebook.common;
 
 
 import java.util.Arrays;

@@ -4,7 +4,7 @@ import com.gouzal.notebook.exceptions.InvalidScriptException;
 import com.gouzal.notebook.exceptions.UnsupportedLanguageException;
 import com.gouzal.notebook.models.Command;
 import com.gouzal.notebook.models.UserSession;
-import com.gouzal.notebook.models.Util;
+import com.gouzal.notebook.common.Util;
 import org.graalvm.polyglot.Context;
 import org.graalvm.polyglot.Value;
 import org.springframework.beans.factory.annotation.Autowired;
