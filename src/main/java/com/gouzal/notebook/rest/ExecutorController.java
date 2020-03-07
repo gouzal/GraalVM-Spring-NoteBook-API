@@ -3,6 +3,7 @@ package com.gouzal.notebook.rest;
 import com.gouzal.notebook.exceptions.InvalidScriptException;
 import com.gouzal.notebook.exceptions.UnsupportedLanguageException;
 import com.gouzal.notebook.models.Command;
+import com.gouzal.notebook.models.UserSession;
 import com.gouzal.notebook.models.Util;
 import org.graalvm.polyglot.Context;
 import org.graalvm.polyglot.Value;
@@ -36,5 +37,12 @@ public class ExecutorController {
         return new ResponseEntity<Map>(resultResponse, HttpStatus.OK);
     }
 
-
+    /**
+     * Initialize the Session with a Map of Users Context
+     */
+    private void initialize() {
+        if (this.httpSession.getAttribute("UsersPolyglotSessions") == null) {
+            this.httpSession.setAttribute("UsersPolyglotSessions", new HashMap<String, UserSession>());
+        }
+    }
 }
