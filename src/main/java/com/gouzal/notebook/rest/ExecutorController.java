@@ -29,11 +29,11 @@ public class ExecutorController {
 
     @GetMapping(value = "/execute", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity execute(@RequestBody Command command) throws InvalidScriptException, UnsupportedLanguageException {
-        Context context = Context.create();
+        this.initialize();
+        Context context=this.getUserSession(command.getSessionId()).getContext();
         Value result = context.eval(command.getInterpreter(), command.getScript());
         Map resultResponse = new HashMap<String, String>();
         resultResponse.put("result", Util.filter(result.toString()));
-        context.close();
 
         return new ResponseEntity<Map>(resultResponse, HttpStatus.OK);
     }
@@ -56,7 +56,6 @@ public class ExecutorController {
         return userSession;
 
     }
-
 
     /**
      * Initialize the Session with a Map of Users Context
