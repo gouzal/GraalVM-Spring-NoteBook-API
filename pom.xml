@@ -12,7 +12,8 @@
     <artifactId>notebook</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>notebook</name>
-    <description>Demo project for Spring Boot</description>
+    <description>A simple APIs for Jupyter notebook alike using Spring and GraalVM
+    </description>
 
     <properties>
         <java.version>1.8</java.version>
