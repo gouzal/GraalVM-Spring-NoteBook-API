@@ -18,7 +18,7 @@ public class UserSession implements Serializable {
 
     public UserSession(String sessionId) {
         this.sessionId = sessionId;
-        //todo: context could be injected for better testing capabilities
+        //todo: context could be injected for better testing capabilities and loose coupling
         this.context = Context.create();
     }
 
