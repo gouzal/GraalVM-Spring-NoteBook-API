@@ -9,13 +9,17 @@ import java.util.List;
  */
 public class Util {
 
+    private Util() {
+    }
+
     /**
      * This method remove nonsense result words (eg. null and undefined)
+     *
      * @param value the results that comes from the Interpreter
      * @return return the value if different than null and undefined.
      */
     public static String filter(String value) {
-        List unwantedWords = Arrays.asList(new String[]{"null", "undefined"});
+        List unwantedWords = Arrays.asList("null", "undefined");
         return unwantedWords.contains(value.toLowerCase()) ? "" : value;
     }
 }
