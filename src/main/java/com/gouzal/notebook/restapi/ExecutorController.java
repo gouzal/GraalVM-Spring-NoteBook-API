@@ -1,12 +1,9 @@
-package com.gouzal.notebook.rest;
+package com.gouzal.notebook.restapi;
 
 import com.gouzal.notebook.exceptions.InvalidScriptException;
 import com.gouzal.notebook.exceptions.UnsupportedLanguageException;
 import com.gouzal.notebook.models.Command;
 import com.gouzal.notebook.models.UserSession;
-import com.gouzal.notebook.common.Util;
-import org.graalvm.polyglot.Context;
-import org.graalvm.polyglot.Value;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -40,7 +37,7 @@ public class ExecutorController {
      */
     public UserSession getUserSession(String sessionId) {
         UserSession userSession;
-        Map usersPolyglotSessions = (Map) this.httpSession.getAttribute("UsersPolyglotSessions");
+        Map usersPolyglotSessions = (Map) this.httpSession.getAttribute("usersPolyglotSessions");
         if (usersPolyglotSessions.containsKey(sessionId)) {
 
             userSession = (UserSession) usersPolyglotSessions.get(sessionId);
@@ -56,8 +53,8 @@ public class ExecutorController {
      * Initialize the Session with a Map of Users Context
      */
     private void initialize() {
-        if (this.httpSession.getAttribute("UsersPolyglotSessions") == null) {
-            this.httpSession.setAttribute("UsersPolyglotSessions", new HashMap<String, UserSession>());
+        if (this.httpSession.getAttribute("usersPolyglotSessions") == null) {
+            this.httpSession.setAttribute("usersPolyglotSessions", new HashMap<String, UserSession>());
         }
     }
 }

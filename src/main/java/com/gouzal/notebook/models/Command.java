@@ -64,7 +64,7 @@ public class Command implements IContextOperations {
      * @throws UnsupportedLanguageException
      */
     @Override
-    public Map execute(Context context) throws InvalidScriptException, UnsupportedLanguageException {
+    public Map<String,String> execute(Context context) throws InvalidScriptException, UnsupportedLanguageException {
         Value result = context.eval(this.getInterpreter(), this.getScript());
         Map resultResponse = new HashMap<String, String>();
         resultResponse.put("result", Util.filter(result.toString()));
