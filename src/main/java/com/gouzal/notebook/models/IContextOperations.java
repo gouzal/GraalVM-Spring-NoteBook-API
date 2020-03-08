@@ -8,5 +8,5 @@ import org.graalvm.polyglot.Context;
 import java.util.Map;
 
 public interface IContextOperations {
-    public Map execute(Context context) throws InvalidScriptException, UnsupportedLanguageException;
+    public Map<String,String> execute(Context context) throws InvalidScriptException, UnsupportedLanguageException;
 }
