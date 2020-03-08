@@ -37,7 +37,7 @@ public class ExecutorController {
      */
     public UserSession getUserSession(String sessionId) {
         UserSession userSession;
-        Map usersPolyglotSessions = (Map) this.httpSession.getAttribute("UsersPolyglotSessions");
+        Map usersPolyglotSessions = (Map) this.httpSession.getAttribute("usersPolyglotSessions");
         if (usersPolyglotSessions.containsKey(sessionId)) {
 
             userSession = (UserSession) usersPolyglotSessions.get(sessionId);
@@ -53,8 +53,8 @@ public class ExecutorController {
      * Initialize the Session with a Map of Users Context
      */
     private void initialize() {
-        if (this.httpSession.getAttribute("UsersPolyglotSessions") == null) {
-            this.httpSession.setAttribute("UsersPolyglotSessions", new HashMap<String, UserSession>());
+        if (this.httpSession.getAttribute("usersPolyglotSessions") == null) {
+            this.httpSession.setAttribute("usersPolyglotSessions", new HashMap<String, UserSession>());
         }
     }
 }
