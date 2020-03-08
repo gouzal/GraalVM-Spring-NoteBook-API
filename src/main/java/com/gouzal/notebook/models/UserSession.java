@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 import org.graalvm.polyglot.Context;
 
+import java.io.Serializable;
 import java.util.Objects;
 
 /**
@@ -11,7 +12,7 @@ import java.util.Objects;
  */
 @Setter
 @Getter
-public class UserSession {
+public class UserSession implements Serializable {
     private String sessionId;
     private Context context;
 
