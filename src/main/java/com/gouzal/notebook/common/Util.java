@@ -9,8 +9,12 @@ import java.util.List;
  */
 public class Util {
 
+    private Util() {
+    }
+
     /**
      * This method remove nonsense result words (eg. null and undefined)
+     *
      * @param value the results that comes from the Interpreter
      * @return return the value if different than null and undefined.
      */
