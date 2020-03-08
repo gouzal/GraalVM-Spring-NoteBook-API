@@ -20,8 +20,6 @@ public class UtilTest {
         for (String word:words){
             if(word.equalsIgnoreCase("undefined") || word.equalsIgnoreCase(null)){
                 assertEquals("",Util.filter(word));
-            }else{
-                assertEquals(word,Util.filter(word));
             }
         }
     }
