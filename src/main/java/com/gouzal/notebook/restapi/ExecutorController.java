@@ -21,7 +21,7 @@ public class ExecutorController {
     @Autowired
     HttpSession httpSession;
 
-    @RequestMapping("/")
+    @GetMapping("/")
     public @ResponseBody
     String home() {
         return "Hello, in my little Jupyter Notebook!";
