@@ -34,4 +34,11 @@ public class UserSession implements Serializable {
     public int hashCode() {
         return Objects.hash(getSessionId());
     }
+
+    /**
+     * Close the User context
+     */
+    public void closeContext(){
+        this.context.close();
+    }
 }
