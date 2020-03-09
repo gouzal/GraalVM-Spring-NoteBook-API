@@ -15,11 +15,13 @@ public class UtilTest {
     @DisplayName("Test Filter utility method")
     @Test
     void testFilter() {
-        List<String> words = Arrays.asList("2", "undefined", "hello", "world", "null", "Spring", "8");
+        List<String> words = Arrays.asList("2", "undefined", "hello", "world", "null", "spring", "8");
         List<String> newList=new ArrayList<>();
         for (String word:words){
-            if(word.equalsIgnoreCase("undefined") || word.equalsIgnoreCase(null)){
+            if(word.equalsIgnoreCase("undefined") || word.equalsIgnoreCase("null")){
                 assertEquals("",Util.filter(word));
+            }else{
+                assertEquals(word,Util.filter(word));
             }
         }
     }

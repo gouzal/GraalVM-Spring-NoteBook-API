@@ -19,7 +19,7 @@ public class Util {
      * @return return the value if different than null and undefined.
      */
     public static String filter(String value) {
-        List unwantedWords = Arrays.asList("null", "undefined");
+        List<String> unwantedWords = Arrays.asList("null", "undefined");
         return unwantedWords.contains(value.toLowerCase()) ? "" : value;
     }
 }
