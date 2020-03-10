@@ -2,7 +2,7 @@
 A simple Jupyter notebook alike using SpringBoot and GraalVM.  
 Travis CI [![Build Status](https://travis-ci.com/gouzal/Spring-NoteBook-API.svg?token=KxbqnJagkTLq3aXT81d8&branch=master)](https://travis-ci.com/gouzal/Spring-NoteBook-API)  
 ## Project Description  
-A single API that take a simple user in a preselected set of language (eg. pythob, ruby, javascript ...etc)
+A single API that take a simple user input in a preselected set of language (eg. pythob, ruby, javascript ...etc) and execute it in the server, then return the result.
 ## Project Architectur
 ![alt text](https://github.com/gouzal/Spring-NoteBook-API/blob/master/assets/architecture.PNG?raw=true "Project Architectur")
 
